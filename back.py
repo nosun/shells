@@ -8,7 +8,7 @@ def DUMP(host, user, passwd,dir,database):
     command = 'mysqldump -u%s -p%s -h %s %s |gzip > /data/backup/database/%s/%s_%s.gz' %(user,passwd,host,database,dir,now,database)
     subprocess.call(command, shell=True)
     command2 = 'find /data/backup/database/%s/* -type f -mtime +3 -exec rm -f {} \;' %(dir)
-    subprocess.call(command, shell=True)
+    subprocess.call(command2, shell=True)
 def run():
     for line in open('host.list'):
         line = line.strip('\n')
