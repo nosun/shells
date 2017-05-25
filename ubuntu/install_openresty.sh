@@ -2,6 +2,9 @@
 
 OPENRESTY_VER=1.11.2.3
 
+apt-get install libreadline-dev libncurses5-dev libpcre3-dev \
+    libssl-dev perl make build-essential curl git -y
+
 cd /usr/local/src
 
 wget https://openresty.org/download/openresty-${OPENRESTY_VER}.tar.gz

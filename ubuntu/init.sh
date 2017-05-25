@@ -13,7 +13,6 @@ apt-get install sysv-rc-conf -y
 apt-get install iptables-persistent -y
 apt-get install git-core -y
 apt-get install zsh -y
-apt-get install libreadline-dev libncurses5-dev libpcre3-dev libssl-dev perl make build-essential -y
 
 # oh my zsh install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
