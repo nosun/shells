@@ -36,7 +36,7 @@ mkdir -p /var/log/nginx
 mkdir -p /var/cache/openresty/client_temp
 chown -R www-data.www-data /var/log/nginx
 chown -R www-data.www-data /run/nginx
-cp etc/init.d/nginx /etc/init.d/
+cp ./etc/init.d/nginx /etc/init.d/
 chmod +x /etc/init.d/nginx
 
 cd /etc
