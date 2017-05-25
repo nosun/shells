@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 OPENRESTY_VER=1.11.2.3
+SHELLPATH=`pwd`
 
 apt-get install libreadline-dev libncurses5-dev libpcre3-dev \
     libssl-dev perl make build-essential curl git -y
@@ -36,7 +37,7 @@ mkdir -p /var/log/nginx
 mkdir -p /var/cache/openresty/client_temp
 chown -R www-data.www-data /var/log/nginx
 chown -R www-data.www-data /run/nginx
-cp ./etc/init.d/nginx /etc/init.d/
+cp ${SHELLPATH}"/etc/init.d/nginx" /etc/init.d/
 chmod +x /etc/init.d/nginx
 
 cd /etc
