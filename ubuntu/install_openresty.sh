@@ -28,13 +28,17 @@ cd /usr/local/src/openresty-${OPENRESTY_VER}
 
 make && make install
 
-mkdir -P /data/logs/nginx
 mkdir -p /run/nginx
-chown -R www-data.www-data /data/
+mkdir -p /var/log/nginx
+mkdir -p /var/cache/openresty/client_temp
+chown -R www-data.www-data /var/log/nginx
 chown -R www-data.www-data /run/nginx
 cp etc/init.d/nginx /etc/init.d/
 chmod +x /etc/init.d/nginx
 
 cd /etc
 git clone https://github.com/nosun/nginx_forbidden nginx
+cd nginx
+# for test
+/etc/init.d/nginx reload
 
