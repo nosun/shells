@@ -35,3 +35,6 @@ chown -R www-data.www-data /run/nginx
 cp etc/init.d/nginx /etc/init.d/
 chmod +x /etc/init.d/nginx
 
+cd /etc
+git clone https://github.com/nosun/nginx_forbidden nginx
+
