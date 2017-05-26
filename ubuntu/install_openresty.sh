@@ -39,7 +39,7 @@ cd /usr/local/src/openresty-${OPENRESTY_VER}
 
 make && make install
 
-
+sysv-rc-conf nginx on
 mkdir -p /var/log/nginx
 mkdir -p /var/cache/openresty/client_temp
 chown -R www-data.www-data /var/log/nginx
