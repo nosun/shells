@@ -16,7 +16,7 @@ sudo apt-get update -y
 DEBIAN_FRONTEND=noninteractive sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 
 asudo pt-get install libreadline-dev libncurses5-dev libpcre3-dev \
-    libssl-dev perl make build-essential curl git -y
+    libssl-dev perl make build-essential curl git-core -y
 
 # for setting auto start
 sudo apt-get install sysv-rc-conf -y
