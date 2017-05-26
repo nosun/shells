@@ -3,6 +3,8 @@
 OPENRESTY_VER=1.11.2.3
 SHELLPATH=`pwd`
 
+apt-get update -y
+apt-get upgrade -y
 apt-get install libreadline-dev libncurses5-dev libpcre3-dev \
     libssl-dev perl make build-essential curl git -y
 

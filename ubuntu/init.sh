@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # soft update
-apt-get update
+apt-get update -y
 apt-get upgrade -y
 
 # locale setting
