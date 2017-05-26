@@ -4,7 +4,9 @@ OPENRESTY_VER=1.11.2.3
 SHELLPATH=`pwd`
 
 apt-get update -y
-apt-get upgrade -y
+# apt-get -y dist-upgrade without a grub config prompt
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+
 apt-get install libreadline-dev libncurses5-dev libpcre3-dev \
     libssl-dev perl make build-essential curl git -y
 

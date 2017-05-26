@@ -2,8 +2,7 @@
 
 # soft update
 apt-get update -y
-apt-get upgrade -y
-
+DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
 # locale setting
 locale-gen zh_CN.UTF-8
 
