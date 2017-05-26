@@ -55,6 +55,7 @@ sudo cp ${SHELLPATH}"/etc/init.d/nginx" /etc/init.d/
 sudo chmod +x /etc/init.d/nginx
 
 cd /etc
+rm -rf nginx
 sudo git clone https://github.com/nosun/nginx_forbidden nginx
 cd nginx
 
