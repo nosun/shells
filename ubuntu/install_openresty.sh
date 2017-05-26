@@ -6,6 +6,9 @@ SHELLPATH=`pwd`
 apt-get install libreadline-dev libncurses5-dev libpcre3-dev \
     libssl-dev perl make build-essential curl git -y
 
+# for setting auto start
+apt-get install sysv-rc-conf -y
+
 cd /usr/local/src
 
 wget https://openresty.org/download/openresty-${OPENRESTY_VER}.tar.gz
@@ -32,11 +35,10 @@ cd /usr/local/src/openresty-${OPENRESTY_VER}
 
 make && make install
 
-mkdir -p /run/nginx
+
 mkdir -p /var/log/nginx
 mkdir -p /var/cache/openresty/client_temp
 chown -R www-data.www-data /var/log/nginx
-chown -R www-data.www-data /run/nginx
 cp ${SHELLPATH}"/etc/init.d/nginx" /etc/init.d/
 chmod +x /etc/init.d/nginx
 

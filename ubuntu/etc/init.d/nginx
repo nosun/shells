@@ -22,7 +22,7 @@ NAME=nginx
 PREFIX=/usr/local/openresty/nginx
 DAEMON=$PREFIX/sbin/$NAME
 CONF=/etc/$NAME/nginx.conf
-PID=/run/nginx/$NAME.pid
+PID=/run/$NAME.pid
 SCRIPT=/etc/init.d/$NAME
 
 if [ ! -x "$DAEMON" ] || [ ! -f "$CONF" ]; then
