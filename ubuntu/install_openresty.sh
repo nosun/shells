@@ -18,6 +18,8 @@ DEBIAN_FRONTEND=noninteractive sudo apt-get -y -o Dpkg::Options::="--force-confd
 asudo pt-get install libreadline-dev libncurses5-dev libpcre3-dev \
     libssl-dev perl make build-essential curl git-core -y
 
+sudo locale-gen zh_CN.UTF-8
+
 # for setting auto start
 sudo apt-get install sysv-rc-conf -y
 
