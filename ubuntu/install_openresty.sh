@@ -3,6 +3,14 @@
 OPENRESTY_VER=1.11.2.3
 SHELLPATH=`pwd`
 
+# if there is already installed nginx, there will has config file
+apt-get remove nginx -y
+apt-get autoremove
+rm -rf /etc/nginx
+
+# stop apache
+service apache2 stop
+
 apt-get update -y
 # apt-get -y dist-upgrade without a grub config prompt
 DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
@@ -49,6 +57,7 @@ chmod +x /etc/init.d/nginx
 cd /etc
 git clone https://github.com/nosun/nginx_forbidden nginx
 cd nginx
+
 # for test
 /etc/init.d/nginx reload
 
