@@ -3,25 +3,35 @@
 OPENRESTY_VER=1.11.2.3
 SHELLPATH=`pwd`
 
-apt-get update -y
-# apt-get -y dist-upgrade without a grub config prompt
-DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+# if there is already installed nginx, there will has config file
+sudo apt-get remove nginx -y
+sudo apt-get autoremove
+sudo rm -rf /etc/nginx
 
-apt-get install libreadline-dev libncurses5-dev libpcre3-dev \
-    libssl-dev perl make build-essential curl git -y
+# stop apache
+sudo service apache2 stop
+
+sudo apt-get update -y
+# apt-get -y dist-upgrade without a grub config prompt
+DEBIAN_FRONTEND=noninteractive sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+
+sudo apt-get install libreadline-dev libncurses5-dev libpcre3-dev \
+    libssl-dev perl make build-essential curl git-core -y
+
+sudo locale-gen zh_CN.UTF-8
 
 # for setting auto start
-apt-get install sysv-rc-conf -y
+sudo apt-get install sysv-rc-conf -y
 
 cd /usr/local/src
 
-wget https://openresty.org/download/openresty-${OPENRESTY_VER}.tar.gz
+sudo wget https://openresty.org/download/openresty-${OPENRESTY_VER}.tar.gz
 
-tar -zxvf openresty-${OPENRESTY_VER}.tar.gz
+sudo tar -zxvf openresty-${OPENRESTY_VER}.tar.gz
 
 cd /usr/local/src/openresty-${OPENRESTY_VER}
 
-./configure --prefix=/usr/local/openresty \
+sudo ./configure --prefix=/usr/local/openresty \
   --http-log-path=/var/log/openresty/access.log \
   --error-log-path=/var/log/openresty/error.log \
   --http-client-body-temp-path=/var/cache/openresty/client_temp \
@@ -37,18 +47,20 @@ cd /usr/local/src/openresty-${OPENRESTY_VER}
   --with-cc-opt='-O2 -g' \
   --with-luajit
 
-make && make install
+sudo make && make install
 
-
-mkdir -p /var/log/nginx
-mkdir -p /var/cache/openresty/client_temp
-chown -R www-data.www-data /var/log/nginx
-cp ${SHELLPATH}"/etc/init.d/nginx" /etc/init.d/
-chmod +x /etc/init.d/nginx
+sudo sysv-rc-conf nginx on
+sudo mkdir -p /var/log/nginx
+sudo mkdir -p /var/cache/openresty/client_temp
+sudo chown -R www-data.www-data /var/log/nginx
+sudo cp ${SHELLPATH}"/etc/init.d/nginx" /etc/init.d/
+sudo chmod +x /etc/init.d/nginx
 
 cd /etc
-git clone https://github.com/nosun/nginx_forbidden nginx
+rm -rf nginx
+sudo git clone https://github.com/nosun/nginx_forbidden nginx
 cd nginx
+
 # for test
-/etc/init.d/nginx reload
+sudo /etc/init.d/nginx reload
 
