@@ -18,8 +18,8 @@ sudo apt-get install vnc4server -y
 ## 修改文件 ##
 # start vnc use command : vncserver
 # 首次使用此命令会提示输入两遍密码，该密码用于远程连接使用，需要记住
-# stop vncserver use command: vncserver -kill :1
-# vncserver 启动是的配置文件需要更改。
+# stop vnc server use command: vncserver -kill :1
+# vnc server 启动是的配置文件需要更改。
 # ~/.vnc/xstartup
 # 在文件底部增加如下几行：@important
 # gnome-panel &
@@ -75,3 +75,8 @@ sudo git clone https://github.com/Mingdabeta/seo_client /srv/work/seo_client
 # dynamo DB config
 # facebook account
 # queue url etc.
+
+
+### 执行相关 ###
+# 在 vnc 中打开 shell, 手动执行如下命令：
+# cd /srv/work/seo_client && nohup python fb_client.py > /srv/work/seo_client/_logs/fb_client.log &
