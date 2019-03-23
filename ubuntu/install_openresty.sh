@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OPENRESTY_VER=1.11.2.3
+OPENRESTY_VER=1.13.6.2
 SHELLPATH=`pwd`
 
 # if there is already installed nginx, there will has config file
@@ -31,21 +31,7 @@ sudo tar -zxvf openresty-${OPENRESTY_VER}.tar.gz
 
 cd /usr/local/src/openresty-${OPENRESTY_VER}
 
-sudo ./configure --prefix=/usr/local/openresty \
-  --http-log-path=/var/log/openresty/access.log \
-  --error-log-path=/var/log/openresty/error.log \
-  --http-client-body-temp-path=/var/cache/openresty/client_temp \
-  --http-proxy-temp-path=/var/cache/openresty/proxy_temp \
-  --http-fastcgi-temp-path=/var/cache/openresty/fastcgi_temp \
-  --http-uwsgi-temp-path=/var/cache/openresty/uwsgi_temp \
-  --http-scgi-temp-path=/var/cache/openresty/scgi_temp \
-  --pid-path=/var/run/openresty.pid \
-  --with-http_realip_module \
-  --with-http_stub_status_module \
-  --with-http_gzip_static_module \
-  --with-http_ssl_module \
-  --with-cc-opt='-O2 -g' \
-  --with-luajit
+sudo ./configure --prefix=/usr/local/openresty --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --http-client-body-temp-path=/var/cache/openresty/client_temp --http-proxy-temp-path=/var/cache/openresty/proxy_temp  --http-fastcgi-temp-path=/var/cache/openresty/fastcgi_temp --http-uwsgi-temp-path=/var/cache/openresty/uwsgi_temp --http-scgi-temp-path=/var/cache/openresty/scgi_temp --pid-path=/var/run/openresty.pid --with-http_realip_module --with-http_stub_status_module --with-http_gzip_static_module --with-http_ssl_module --with-cc-opt='-O2 -g' --with-luajit
 
 sudo make && make install
 
