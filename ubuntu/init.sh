@@ -3,6 +3,8 @@
 # soft update
 sudo apt-get update -y
 DEBIAN_FRONTEND=noninteractive sudo apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" dist-upgrade
+SHELLPATH=`pwd`
+
 # locale setting
 sudo locale-gen zh_CN.UTF-8
 
@@ -17,9 +19,6 @@ sudo apt-get install squid -y
 
 # oh my zsh install
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-SHELLPATH=`pwd`
-
 
 sudo cp ${SHELLPATH}"/etc/iptables.up.rules" /etc/
 sudo iptables-restore < /etc/iptables.up.rules
