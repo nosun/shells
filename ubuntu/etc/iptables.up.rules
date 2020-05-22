@@ -14,7 +14,7 @@
 
 # open 80 for everyone
 -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
-
+-A INPUT -p tcp -m tcp --dport 31028 -j ACCEPT
 # allow ping
 -A INPUT -p icmp -m icmp --icmp-type 8 -j ACCEPT
 
