@@ -12,6 +12,7 @@ sudo apt-get install sysv-rc-conf -y
 sudo apt-get install iptables-persistent -y
 sudo apt-get install git-core -y
 sudo apt-get install zsh -y
+sudo apt-get install lrzsz -y
 
 # oh my zsh install
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
