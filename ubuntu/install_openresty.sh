@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OPENRESTY_VER=1.13.6.2
+OPENRESTY_VER=1.15.8.3
 SHELLPATH=`pwd`
 
 # if there is already installed nginx, there will has config file
@@ -36,6 +36,7 @@ sudo ./configure --prefix=/usr/local/openresty --http-log-path=/var/log/nginx/ac
 sudo make && make install
 
 sudo sysv-rc-conf nginx on
+sudo mkdir -p /data/nginx_image_cache
 sudo mkdir -p /var/log/nginx
 sudo mkdir -p /var/cache/openresty/client_temp
 sudo chown -R www-data.www-data /var/log/nginx
