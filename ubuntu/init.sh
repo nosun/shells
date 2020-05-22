@@ -16,3 +16,10 @@ sudo apt-get install lrzsz -y
 
 # oh my zsh install
 sudo sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+SHELLPATH=`pwd`
+
+
+sudo cp ${SHELLPATH}"/etc/iptables.up.rules" /etc/
+sudo iptables-restore < /etc/iptables.up.rules
+sudo iptables-save < /etc/iptables/rules.v4
