@@ -9,3 +9,4 @@ sudo cp ${SHELLPATH}"/etc/iptables.up.rules" /etc/
 sudo iptables-restore < /etc/iptables.up.rules
 sudo iptables-save < /etc/iptables/rules.v4
 
+sudo service squid restart
