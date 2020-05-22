@@ -5,7 +5,7 @@ SHELLPATH=`pwd`
 
 # if there is already installed nginx, there will has config file
 sudo apt-get remove nginx -y
-sudo apt-get autoremove
+sudo apt-get autoremove -y
 sudo rm -rf /etc/nginx
 
 # stop apache
