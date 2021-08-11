@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OPENRESTY_VER=1.15.8.3
+OPENRESTY_VER=1.19.9.1
 SHELLPATH=`pwd`
 
 # if there is already installed nginx, there will has config file
