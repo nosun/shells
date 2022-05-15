@@ -3,6 +3,7 @@
 action=$1
 ROOT=`pwd`
 SCRIPT=/etc/init.d/elasticsearch
+NAME=elasticsearch
 LOGPATH=${ROOT}/elastichsearch_check.log
 
 
@@ -14,7 +15,7 @@ function do_start()
     else
         echo start it
         ${SCRIPT} start >> ${LOGPATH} 2>&1 &
-        echo $(date +%Y-%m-%di_%H:%M:%S)"restarted" >> ${LOGPATH}/queue.log
+        echo $(date +%Y-%m-%di_%H:%M:%S)"restarted" >> ${LOGPATH}
     fi
 }
 
@@ -31,7 +32,7 @@ function do_stop()
 
 function get_pid()
 {
-   pid=`ps -fe | grep "${SCRIPT}" | grep -v "grep" |awk -F " " '{print $2}'`
+   pid=`ps -fe | grep "${NAME}" | grep -v "grep" |awk -F " " '{print $2}'`
 }
 
 
